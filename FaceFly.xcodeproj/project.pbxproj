@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B10000000000000000000001 /* FaceFlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000001 /* FaceFlyApp.swift */; };
+		B10000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000002 /* ContentView.swift */; };
+		B10000000000000000000003 /* FaceTrackingSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000003 /* FaceTrackingSessionModel.swift */; };
+		B10000000000000000000004 /* FaceInputSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000004 /* FaceInputSnapshot.swift */; };
+		B10000000000000000000005 /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000005 /* GameInput.swift */; };
+		B10000000000000000000006 /* GameParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000006 /* GameParameters.swift */; };
+		B10000000000000000000007 /* FaceInputParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000007 /* FaceInputParser.swift */; };
+		B10000000000000000000008 /* FaceTrackingARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000008 /* FaceTrackingARView.swift */; };
+		B10000000000000000000009 /* HeadPose+Yaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000009 /* HeadPose+Yaw.swift */; };
+		B1000000000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000A /* Assets.xcassets */; };
+		B1000000000000000000000B /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000B /* ARKit.framework */; };
+		B1000000000000000000000C /* FlappyGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000C /* FlappyGameModel.swift */; };
+		B1000000000000000000000D /* GamePlayfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000D /* GamePlayfieldView.swift */; };
+		B1000000000000000000000E /* GameInput+Simulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000E /* GameInput+Simulator.swift */; };
+		B1000000000000000000000F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000F /* HomeView.swift */; };
+		B10000000000000000000010 /* FaceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000010 /* FaceSettingsView.swift */; };
+		B10000000000000000000011 /* BlinkBaselineStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000011 /* BlinkBaselineStorage.swift */; };
+		B10000000000000000000012 /* BlinkDetectionTuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000012 /* BlinkDetectionTuning.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F10000000000000000000001 /* FaceFlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceFlyApp.swift; sourceTree = "<group>"; };
+		F10000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F10000000000000000000003 /* FaceTrackingSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackingSessionModel.swift; sourceTree = "<group>"; };
+		F10000000000000000000004 /* FaceInputSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceInputSnapshot.swift; sourceTree = "<group>"; };
+		F10000000000000000000005 /* GameInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInput.swift; sourceTree = "<group>"; };
+		F10000000000000000000006 /* GameParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameParameters.swift; sourceTree = "<group>"; };
+		F10000000000000000000007 /* FaceInputParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceInputParser.swift; sourceTree = "<group>"; };
+		F10000000000000000000008 /* FaceTrackingARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackingARView.swift; sourceTree = "<group>"; };
+		F10000000000000000000009 /* HeadPose+Yaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeadPose+Yaw.swift"; sourceTree = "<group>"; };
+		F1000000000000000000000A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1000000000000000000000B /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		F1000000000000000000000C /* FlappyGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyGameModel.swift; sourceTree = "<group>"; };
+		F1000000000000000000000D /* GamePlayfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayfieldView.swift; sourceTree = "<group>"; };
+		F1000000000000000000000E /* GameInput+Simulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameInput+Simulator.swift"; sourceTree = "<group>"; };
+		F1000000000000000000000F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F10000000000000000000010 /* FaceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceSettingsView.swift; sourceTree = "<group>"; };
+		F10000000000000000000011 /* BlinkBaselineStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkBaselineStorage.swift; sourceTree = "<group>"; };
+		F10000000000000000000012 /* BlinkDetectionTuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkDetectionTuning.swift; sourceTree = "<group>"; };
+		P10000000000000000000001 /* FaceFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FW10000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1000000000000000000000B /* ARKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1285EDD2F84D9330049AB76 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000000B /* ARKit.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		G10000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				G10000000000000000000002 /* FaceFly */,
+				G10000000000000000000003 /* Products */,
+				C1285EDD2F84D9330049AB76 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		G10000000000000000000002 /* FaceFly */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000001 /* FaceFlyApp.swift */,
+				G10000000000000000000004 /* App */,
+				G10000000000000000000008 /* Game */,
+				G10000000000000000000009 /* Views */,
+				G10000000000000000000005 /* Models */,
+				G10000000000000000000006 /* Input */,
+				G10000000000000000000007 /* Tracking */,
+				F1000000000000000000000A /* Assets.xcassets */,
+			);
+			path = FaceFly;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				P10000000000000000000001 /* FaceFly.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000002 /* ContentView.swift */,
+				F10000000000000000000003 /* FaceTrackingSessionModel.swift */,
+				F1000000000000000000000F /* HomeView.swift */,
+				F10000000000000000000010 /* FaceSettingsView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000004 /* FaceInputSnapshot.swift */,
+				F10000000000000000000005 /* GameInput.swift */,
+				F1000000000000000000000E /* GameInput+Simulator.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000006 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000006 /* GameParameters.swift */,
+				F10000000000000000000007 /* FaceInputParser.swift */,
+				F10000000000000000000011 /* BlinkBaselineStorage.swift */,
+				F10000000000000000000012 /* BlinkDetectionTuning.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000007 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000008 /* FaceTrackingARView.swift */,
+				F10000000000000000000009 /* HeadPose+Yaw.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000008 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000000C /* FlappyGameModel.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000009 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000000D /* GamePlayfieldView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		T10000000000000000000001 /* FaceFly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C10000000000000000000003 /* Build configuration list for PBXNativeTarget "FaceFly" */;
+			buildPhases = (
+				S10000000000000000000001 /* Sources */,
+				FW10000000000000000000001 /* Frameworks */,
+				R10000000000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FaceFly;
+			productName = FaceFly;
+			productReference = P10000000000000000000001 /* FaceFly.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		PR1000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					T10000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = C10000000000000000000001 /* Build configuration list for PBXProject "FaceFly" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ko;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ko,
+				Base,
+			);
+			mainGroup = G10000000000000000000001;
+			productRefGroup = G10000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				T10000000000000000000001 /* FaceFly */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		R10000000000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1000000000000000000000A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		S10000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000001 /* FaceFlyApp.swift in Sources */,
+				B10000000000000000000002 /* ContentView.swift in Sources */,
+				B10000000000000000000003 /* FaceTrackingSessionModel.swift in Sources */,
+				B10000000000000000000004 /* FaceInputSnapshot.swift in Sources */,
+				B10000000000000000000005 /* GameInput.swift in Sources */,
+				B10000000000000000000006 /* GameParameters.swift in Sources */,
+				B10000000000000000000007 /* FaceInputParser.swift in Sources */,
+				B10000000000000000000008 /* FaceTrackingARView.swift in Sources */,
+				B10000000000000000000009 /* HeadPose+Yaw.swift in Sources */,
+				B1000000000000000000000C /* FlappyGameModel.swift in Sources */,
+				B1000000000000000000000D /* GamePlayfieldView.swift in Sources */,
+				B1000000000000000000000E /* GameInput+Simulator.swift in Sources */,
+				B1000000000000000000000F /* HomeView.swift in Sources */,
+				B10000000000000000000010 /* FaceSettingsView.swift in Sources */,
+				B10000000000000000000011 /* BlinkBaselineStorage.swift in Sources */,
+				B10000000000000000000012 /* BlinkDetectionTuning.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		X10000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		X10000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		X10000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 2ZM4623N9G;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "얼굴 움직임으로 게임을 조작하기 위해 전면 카메라와 얼굴 추적이 필요합니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.facefly.FaceFly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		X10000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 2ZM4623N9G;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "얼굴 움직임으로 게임을 조작하기 위해 전면 카메라와 얼굴 추적이 필요합니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.facefly.FaceFly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C10000000000000000000001 /* Build configuration list for PBXProject "FaceFly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				X10000000000000000000001 /* Debug */,
+				X10000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C10000000000000000000003 /* Build configuration list for PBXNativeTarget "FaceFly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				X10000000000000000000003 /* Debug */,
+				X10000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = PR1000000000000000000001 /* Project object */;
+}
