@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="80" height="60">
+  <ellipse cx="38" cy="34" rx="22" ry="14" fill="#C0392B"/>
+  <ellipse cx="57" cy="24" rx="12" ry="10" fill="#C0392B"/>
+  <ellipse cx="67" cy="27" rx="5" ry="4" fill="#A03020"/>
+  <ellipse cx="69" cy="26" rx="1.5" ry="1" fill="#E07070"/>
+  <ellipse cx="62" cy="21" rx="2.5" ry="2.5" fill="#F5ECD7"/>
+  <ellipse cx="62.5" cy="21" rx="1.2" ry="1.2" fill="#2D1010"/>
+  <ellipse cx="63" cy="20.5" rx="0.4" ry="0.4" fill="white"/>
+  <polygon points="56,15 59,10 62,15" fill="#A03020"/>
+  <polygon points="57,15 59,11 61,15" fill="#C0392B"/>
+  <path d="M52,16 Q50,20 48,24 Q46,20 50,16 Q51,14 52,16Z" fill="#6D1010"/>
+  <path d="M56,14 Q54,19 52,22 Q50,18 54,14 Q55,12 56,14Z" fill="#6D1010"/>
+  <path d="M60,13 Q58,18 57,21 Q55,17 59,13 Q60,11 60,13Z" fill="#8B1A1A"/>
+  <path d="M52,20 Q50,28 48,32 Q52,30 56,24Z" fill="#A03020"/>
+  <ellipse cx="38" cy="44" rx="18" ry="5" fill="#8B1A1A"/>
+  <rect x="48" y="44" width="6" height="14" rx="3" fill="#A03020"/>
+  <rect x="48" y="55" width="7" height="4" rx="2" fill="#3A1A0A"/>
+  <rect x="54" y="40" width="6" height="18" rx="3" fill="#C0392B"/>
+  <rect x="54" y="55" width="7" height="4" rx="2" fill="#3A1A0A"/>
+  <rect x="24" y="44" width="6" height="16" rx="3" fill="#A03020"/>
+  <rect x="24" y="57" width="7" height="4" rx="2" fill="#3A1A0A"/>
+  <rect x="30" y="42" width="6" height="14" rx="3" fill="#C0392B"/>
+  <rect x="30" y="53" width="7" height="4" rx="2" fill="#3A1A0A"/>
+  <path d="M18,30 Q10,34 8,40 Q12,36 18,34Z" fill="#6D1010"/>
+  <path d="M18,32 Q9,38 7,46 Q12,40 18,36Z" fill="#8B1A1A"/>
+</svg>

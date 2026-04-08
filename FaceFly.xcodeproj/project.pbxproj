@@ -25,6 +25,7 @@
 		B10000000000000000000010 /* FaceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000010 /* FaceSettingsView.swift */; };
 		B10000000000000000000011 /* BlinkBaselineStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000011 /* BlinkBaselineStorage.swift */; };
 		B10000000000000000000012 /* BlinkDetectionTuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000012 /* BlinkDetectionTuning.swift */; };
+		B10000000000000000000013 /* FlappyHorseTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000013 /* FlappyHorseTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F10000000000000000000010 /* FaceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceSettingsView.swift; sourceTree = "<group>"; };
 		F10000000000000000000011 /* BlinkBaselineStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkBaselineStorage.swift; sourceTree = "<group>"; };
 		F10000000000000000000012 /* BlinkDetectionTuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkDetectionTuning.swift; sourceTree = "<group>"; };
+		F10000000000000000000013 /* FlappyHorseTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyHorseTheme.swift; sourceTree = "<group>"; };
 		P10000000000000000000001 /* FaceFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				F1000000000000000000000C /* FlappyGameModel.swift */,
+				F10000000000000000000013 /* FlappyHorseTheme.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				B10000000000000000000010 /* FaceSettingsView.swift in Sources */,
 				B10000000000000000000011 /* BlinkBaselineStorage.swift in Sources */,
 				B10000000000000000000012 /* BlinkDetectionTuning.swift in Sources */,
+				B10000000000000000000013 /* FlappyHorseTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

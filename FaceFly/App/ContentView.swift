@@ -147,38 +147,45 @@ struct ContentView: View {
                 .ignoresSafeArea()
 
             VStack {
-                HStack {
-                    Button {
-                        route = .home
-                    } label: {
-                        Text("홈")
-                            .font(.caption.weight(.bold))
-                            .foregroundStyle(.white)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 8)
-                            .background(Rectangle().fill(Color.brown.opacity(0.75)))
-                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                    }
-
+                ZStack {
                     Text("\(game.score)")
-                        .font(.system(size: 36, weight: .heavy, design: .rounded))
-                        .foregroundStyle(.primary)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .background(Rectangle().fill(Color.yellow.opacity(0.92)))
-                        .overlay(Rectangle().stroke(Color.black, lineWidth: 3))
-                    Spacer()
-                    Button {
-                        showDebug.toggle()
-                    } label: {
-                        Rectangle()
-                            .fill(Color.gray.opacity(0.6))
-                            .frame(width: 44, height: 28)
-                            .overlay(Text("DBG").font(.caption2.bold()).foregroundStyle(.white))
+                        .font(.system(size: FlappyHorseTheme.scoreFontSize, weight: .bold, design: .monospaced))
+                        .foregroundStyle(FlappyHorseTheme.hudCream)
+                        .shadow(color: FlappyHorseTheme.hudShadow, radius: 0, x: 2, y: 2)
+
+                    HStack {
+                        Button {
+                            route = .home
+                        } label: {
+                            Text("홈")
+                                .font(.caption.weight(.bold))
+                                .monospaced()
+                                .foregroundStyle(FlappyHorseTheme.hudCream)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(FlappyHorseTheme.gameOverPanel.opacity(0.55))
+                                )
+                        }
+                        Spacer()
+                        Button {
+                            showDebug.toggle()
+                        } label: {
+                            Text("DBG")
+                                .font(.caption2.bold())
+                                .monospaced()
+                                .foregroundStyle(FlappyHorseTheme.hudCream)
+                                .frame(width: 44, height: 28)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 6)
+                                        .fill(Color.black.opacity(0.35))
+                                )
+                        }
                     }
                 }
                 .padding(.horizontal, 12)
-                .padding(.top, 8)
+                .padding(.top, 16)
                 Spacer()
             }
 
@@ -236,10 +243,12 @@ struct ContentView: View {
                 } label: {
                     Text("점프")
                         .font(.caption.bold())
-                        .foregroundStyle(.black)
+                        .monospaced()
+                        .foregroundStyle(FlappyHorseTheme.buttonText)
                         .padding(.horizontal, 14)
                         .padding(.vertical, 8)
-                        .background(Rectangle().fill(Color.yellow))
+                        .background(FlappyHorseTheme.goldenButton)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
                 .disabled(showTutorial || game.isGameOver)
                 Toggle("부스터", isOn: $simBoostHeld)
@@ -254,39 +263,44 @@ struct ContentView: View {
 
     private var gameOverCard: some View {
         ZStack {
-            Color.black.opacity(0.5).ignoresSafeArea()
+            Color.black.opacity(0.45).ignoresSafeArea()
             VStack(spacing: 16) {
                 Text("게임 오버")
                     .font(.title.bold())
+                    .monospaced()
+                    .foregroundStyle(FlappyHorseTheme.hudCream)
                 Text("점수 \(game.score)")
-                    .font(.title2.monospacedDigit())
+                    .font(.title2.monospacedDigit().weight(.semibold))
+                    .foregroundStyle(FlappyHorseTheme.hudCream)
                 Button {
                     game.restart()
                 } label: {
                     Text("다시")
-                        .font(.headline)
+                        .font(.headline.weight(.bold))
+                        .monospaced()
                         .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Rectangle().fill(Color.green.opacity(0.9)))
-                        .foregroundStyle(.black)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 32)
+                        .background(FlappyHorseTheme.goldenButton)
+                        .foregroundStyle(FlappyHorseTheme.buttonText)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
-                .frame(width: 200)
+                .frame(width: 220)
                 Button {
                     route = .home
                 } label: {
                     Text("홈으로")
                         .font(.subheadline.weight(.semibold))
+                        .monospaced()
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
-                        .background(Rectangle().fill(Color.white.opacity(0.9)))
-                        .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                        .foregroundStyle(.black)
+                        .foregroundStyle(FlappyHorseTheme.hudCream)
                 }
-                .frame(width: 200)
+                .frame(width: 220)
             }
             .padding(32)
-            .background(Rectangle().fill(Color.white))
-            .overlay(Rectangle().stroke(Color.black, lineWidth: 4))
+            .background(FlappyHorseTheme.gameOverPanel.opacity(0.85))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
 
@@ -308,11 +322,14 @@ struct ContentView: View {
                     game.restart()
                 } label: {
                     Text("시작")
-                        .font(.headline)
+                        .font(.headline.weight(.bold))
+                        .monospaced()
                         .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Rectangle().fill(Color.cyan))
-                        .foregroundStyle(.black)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 32)
+                        .background(FlappyHorseTheme.goldenButton)
+                        .foregroundStyle(FlappyHorseTheme.buttonText)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
             }
             .padding(24)

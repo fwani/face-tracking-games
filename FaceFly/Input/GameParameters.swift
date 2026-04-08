@@ -39,13 +39,24 @@ enum GameParameters {
     /// Maps PRD-style values into normalized playfield units per second².
     static let physicsWorldScale: Float = 0.055
     static let worldScrollPerSec: Float = 0.32
-    static let birdHalfWidthNorm: Float = 0.045
-    static let birdHalfHeightNorm: Float = 0.038
+    /// 말 스프라이트·충돌 가로 (정규화). `horseAssetView*`와 `GamePlayfieldView`와 동일해야 함.
+    static let birdVisualWidthNorm: Float = 0.09
+    /// 말 SVG 공통 viewBox (양 에셋 동일). 세로 충돌은 화면 `width/height`로 스케일.
+    static let horseAssetViewWidth: Float = 80
+    static let horseAssetViewHeight: Float = 60
+    /// 기둥 이미지 가로 반폭(정규화). `GamePlayfieldView` 배치·통과 점수에 사용.
     static let pipeHalfWidthNorm: Float = 0.055
+    /// 기둥 좌우 충돌만 — 시각보다 좁게(몸통에 가깝게). SVG와 무관하게 튜닝.
+    static let pipeCollisionHalfWidthNorm: Float = 0.036
     static let pipeGapHalfHeightNorm: Float = 0.22
     static let birdHorizontalSpanNorm: Float = 0.32
     static let horizontalFollowRate: Float = 5.5
     static let pipeSpawnMinDistanceNorm: Float = 0.42
+
+    /// 화면 하단 지면 밴드 높이(정규화). [flappy-horse-design-guide]와 `FlappyHorseTheme`·충돌 판정과 일치.
+    static let groundBandHeightNorm: Float = 0.175
+    static let groundCollisionEpsilonNorm: Float = 0.012
+
     static let tutorialDefaultsKey = "facefly.tutorial.v1.done"
 
     /// UserDefaults: 저장된 눈 뜸 baseline(양쪽 평균, 0…1 스케일).

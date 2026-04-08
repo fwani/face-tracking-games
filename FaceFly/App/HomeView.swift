@@ -8,7 +8,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [Color(red: 0.45, green: 0.75, blue: 0.95), Color(red: 0.2, green: 0.45, blue: 0.75)],
+                colors: [FlappyHorseTheme.skyTop, FlappyHorseTheme.skyBottom],
                 startPoint: .top,
                 endPoint: .bottom
             )
@@ -16,18 +16,21 @@ struct HomeView: View {
 
             VStack(spacing: 28) {
                 Text("FaceFly")
-                    .font(.system(size: 44, weight: .heavy, design: .rounded))
-                    .foregroundStyle(.white)
-                    .shadow(color: .black.opacity(0.25), radius: 2, y: 2)
+                    .font(.system(size: 44, weight: .heavy))
+                    .monospaced()
+                    .foregroundStyle(FlappyHorseTheme.hudCream)
+                    .shadow(color: FlappyHorseTheme.hudShadow.opacity(0.6), radius: 0, x: 2, y: 2)
 
                 Button(action: onPlay) {
                     Text("플레이")
                         .font(.title2.weight(.bold))
+                        .monospaced()
                         .frame(maxWidth: 260)
-                        .padding(.vertical, 16)
-                        .background(Rectangle().fill(Color.yellow.opacity(0.95)))
-                        .overlay(Rectangle().stroke(Color.black, lineWidth: 3))
-                        .foregroundStyle(.black)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 32)
+                        .background(FlappyHorseTheme.goldenButton)
+                        .foregroundStyle(FlappyHorseTheme.buttonText)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
 
                 Button(action: onSettings) {
@@ -35,24 +38,23 @@ struct HomeView: View {
                         if needsBlinkBaselineSetup {
                             Text("권장")
                                 .font(.caption2.weight(.heavy))
+                                .monospaced()
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)
-                                .background(Capsule().fill(Color.orange))
-                                .foregroundStyle(.white)
+                                .background(Capsule().fill(FlappyHorseTheme.goldenButtonPressed))
+                                .foregroundStyle(FlappyHorseTheme.hudCream)
                         }
                         Text("설정")
                             .font(.headline.weight(.semibold))
+                            .monospaced()
                     }
                     .frame(maxWidth: 260)
                     .padding(.vertical, 14)
-                    .background(Rectangle().fill(needsBlinkBaselineSetup ? Color.cyan.opacity(0.35) : Color.white.opacity(0.92)))
-                    .overlay(
-                        Rectangle().stroke(
-                            needsBlinkBaselineSetup ? Color.cyan : Color.black,
-                            lineWidth: needsBlinkBaselineSetup ? 4 : 3
-                        )
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(needsBlinkBaselineSetup ? FlappyHorseTheme.skyTop.opacity(0.45) : FlappyHorseTheme.hudCream.opacity(0.92))
                     )
-                    .foregroundStyle(.black)
+                    .foregroundStyle(FlappyHorseTheme.buttonText)
                 }
 
                 if needsBlinkBaselineSetup {
@@ -63,19 +65,26 @@ struct HomeView: View {
                                 + Text("에서 눈 뜸 기준을 측정해 저장하는 것을 권장합니다.")
                         )
                         .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(FlappyHorseTheme.hudCream)
                         .shadow(color: .black.opacity(0.35), radius: 1, y: 1)
                         Button(action: onSettings) {
                             Text("설정에서 측정하기")
                                 .font(.subheadline.weight(.bold))
+                                .monospaced()
                                 .underline()
-                                .foregroundStyle(.white)
+                                .foregroundStyle(FlappyHorseTheme.hudCream)
                         }
                     }
                     .padding(16)
                     .frame(maxWidth: 300)
-                    .background(Rectangle().fill(Color.black.opacity(0.28)))
-                    .overlay(Rectangle().stroke(Color.white.opacity(0.45), lineWidth: 2))
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color.black.opacity(0.28))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(FlappyHorseTheme.hudCream.opacity(0.45), lineWidth: 2)
+                    )
                 }
             }
             .padding(.horizontal, 20)

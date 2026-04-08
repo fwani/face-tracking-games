@@ -21,18 +21,36 @@ final class FlappyGameModel: ObservableObject {
     @Published var worldScrollPhase: CGFloat = 0
     @Published var playerScale: CGFloat = 1
     @Published var showBoostFX: Bool = false
+    @Published var runAnimationPhase: Bool = false
+    @Published var hitFlashActive: Bool = false
 
     private let gravity = CGFloat(GameParameters.gravity) * CGFloat(GameParameters.physicsWorldScale)
     private let jumpImpulse = CGFloat(GameParameters.jumpForce) * CGFloat(GameParameters.physicsWorldScale)
     private let boostPerSec = CGFloat(GameParameters.boostForce) * CGFloat(GameParameters.physicsWorldScale)
     private let scroll = CGFloat(GameParameters.worldScrollPerSec)
-    private let bw = CGFloat(GameParameters.birdHalfWidthNorm)
-    private let bh = CGFloat(GameParameters.birdHalfHeightNorm)
     private let pw = CGFloat(GameParameters.pipeHalfWidthNorm)
+    private let pipeHitHalfW = CGFloat(GameParameters.pipeCollisionHalfWidthNorm)
+    /// 화면 가로/세로 — `GamePlayfieldView`에서 갱신. 말 충돌 세로는 이 비율로 계산.
+    private var playfieldWidthOverHeight: CGFloat = 9 / 19.5
+
+    private var bw: CGFloat { CGFloat(GameParameters.birdVisualWidthNorm) * 0.5 }
+    private var bh: CGFloat {
+        CGFloat(GameParameters.birdVisualWidthNorm) * playfieldWidthOverHeight
+            * CGFloat(GameParameters.horseAssetViewHeight) / CGFloat(GameParameters.horseAssetViewWidth) * 0.5
+    }
+
+    func updatePlayfieldAspect(width: CGFloat, height: CGFloat) {
+        guard width > 0, height > 0 else { return }
+        playfieldWidthOverHeight = width / height
+    }
     private let gh = CGFloat(GameParameters.pipeGapHalfHeightNorm)
     private let span = CGFloat(GameParameters.birdHorizontalSpanNorm)
     private let follow = CGFloat(GameParameters.horizontalFollowRate)
     private let spawnGap = CGFloat(GameParameters.pipeSpawnMinDistanceNorm)
+    private let groundH = CGFloat(GameParameters.groundBandHeightNorm)
+    private let groundEps = CGFloat(GameParameters.groundCollisionEpsilonNorm)
+    private var runAnimAccum: CGFloat = 0
+    private var hitFlashUntil: TimeInterval = 0
 
     init() {
         restart()
@@ -48,6 +66,10 @@ final class FlappyGameModel: ObservableObject {
         worldScrollPhase = 0
         playerScale = 1
         showBoostFX = false
+        runAnimationPhase = false
+        runAnimAccum = 0
+        hitFlashActive = false
+        hitFlashUntil = 0
         seedPipes()
     }
 
@@ -59,7 +81,12 @@ final class FlappyGameModel: ObservableObject {
     }
 
     func tick(dt: CGFloat, input: GameInput, pauseForTracking: Bool) {
-        if pauseForTracking || isGameOver { return }
+        let now = Date().timeIntervalSinceReferenceDate
+        if isGameOver {
+            updateHitFlash(now: now)
+            return
+        }
+        if pauseForTracking { return }
 
         let targetX = 0.5 + CGFloat(input.horizontalNormalized) * span
         birdX += (targetX - birdX) * min(1, follow * dt)
@@ -83,6 +110,12 @@ final class FlappyGameModel: ObservableObject {
 
         worldScrollPhase += scroll * dt
 
+        runAnimAccum += dt
+        if runAnimAccum >= 0.125 {
+            runAnimAccum = 0
+            runAnimationPhase.toggle()
+        }
+
         if playerScale > 1.001 {
             playerScale += (1 - playerScale) * min(1, 12 * dt)
         }
@@ -90,6 +123,13 @@ final class FlappyGameModel: ObservableObject {
         advancePipes(dt: dt)
         checkBounds()
         checkCollisions()
+        updateHitFlash(now: now)
+    }
+
+    private func updateHitFlash(now: TimeInterval) {
+        if hitFlashActive, now >= hitFlashUntil {
+            hitFlashActive = false
+        }
     }
 
     private func advancePipes(dt: CGFloat) {
@@ -117,15 +157,16 @@ final class FlappyGameModel: ObservableObject {
     }
 
     private func checkBounds() {
-        if birdY - bh <= 0.02 || birdY + bh >= 0.98 {
+        if birdY - bh <= groundH + groundEps || birdY + bh >= 0.98 {
+            triggerGameOverFlash()
             isGameOver = true
         }
     }
 
     private func checkCollisions() {
         for pipe in pipes {
-            let pipeL = pipe.x - pw
-            let pipeR = pipe.x + pw
+            let pipeL = pipe.x - pipeHitHalfW
+            let pipeR = pipe.x + pipeHitHalfW
             let birdL = birdX - bw
             let birdR = birdX + bw
             if birdR < pipeL || birdL > pipeR { continue }
@@ -135,9 +176,16 @@ final class FlappyGameModel: ObservableObject {
             let birdTop = birdY + bh
             let birdBot = birdY - bh
             if birdTop > gapTop || birdBot < gapBot {
+                triggerGameOverFlash()
                 isGameOver = true
                 return
             }
         }
+    }
+
+    private func triggerGameOverFlash() {
+        guard !hitFlashActive else { return }
+        hitFlashActive = true
+        hitFlashUntil = Date().timeIntervalSinceReferenceDate + 0.2
     }
 }
