@@ -5,6 +5,7 @@ struct HomeView: View {
     @Binding var selectedDifficulty: Difficulty
     let onPlay: () -> Void
     let onSettings: () -> Void
+    var onBackToHub: (() -> Void)? = nil
 
     var body: some View {
         ZStack {
@@ -16,6 +17,18 @@ struct HomeView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 28) {
+                if let onBackToHub {
+                    HStack {
+                        Button(action: onBackToHub) {
+                            Label("게임 선택", systemImage: "chevron.backward")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(FlappyHorseTheme.hudCream)
+                        }
+                        Spacer()
+                    }
+                    .frame(maxWidth: 340)
+                }
+
                 Text("FaceFly")
                     .font(.system(size: 44, weight: .heavy))
                     .monospaced()
@@ -113,5 +126,11 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(needsBlinkBaselineSetup: true, selectedDifficulty: .constant(.normal), onPlay: {}, onSettings: {})
+    HomeView(
+        needsBlinkBaselineSetup: true,
+        selectedDifficulty: .constant(.normal),
+        onPlay: {},
+        onSettings: {},
+        onBackToHub: {}
+    )
 }

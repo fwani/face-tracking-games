@@ -7,7 +7,7 @@ private enum PlayfieldLayoutKey: PreferenceKey {
     }
 }
 
-/// Flappy Horse 플레이필드 — [docs/flappy-horse-design-guide.md] 패럴랙스 + Asset SVG.
+/// Flappy Horse 플레이필드 — [docs/facefly/flappy-horse-design-guide.md] 패럴랙스 + Asset SVG.
 struct GamePlayfieldView: View {
     @ObservedObject var game: FlappyGameModel
 

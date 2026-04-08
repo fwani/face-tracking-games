@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B10000000000000000000001 /* FaceFlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000001 /* FaceFlyApp.swift */; };
+		B10000000000000000000001 /* CameraGameHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000001 /* CameraGameHubApp.swift */; };
 		B10000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000002 /* ContentView.swift */; };
 		B10000000000000000000003 /* FaceTrackingSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000003 /* FaceTrackingSessionModel.swift */; };
 		B10000000000000000000004 /* FaceInputSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000004 /* FaceInputSnapshot.swift */; };
@@ -27,10 +27,11 @@
 		B10000000000000000000012 /* BlinkDetectionTuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000012 /* BlinkDetectionTuning.swift */; };
 		B10000000000000000000013 /* FlappyHorseTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000013 /* FlappyHorseTheme.swift */; };
 		B10000000000000000000014 /* DifficultyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000014 /* DifficultyConfig.swift */; };
+		B10000000000000000000015 /* CameraGameHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000015 /* CameraGameHubView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F10000000000000000000001 /* FaceFlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceFlyApp.swift; sourceTree = "<group>"; };
+		F10000000000000000000001 /* CameraGameHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGameHubApp.swift; sourceTree = "<group>"; };
 		F10000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F10000000000000000000003 /* FaceTrackingSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackingSessionModel.swift; sourceTree = "<group>"; };
 		F10000000000000000000004 /* FaceInputSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceInputSnapshot.swift; sourceTree = "<group>"; };
@@ -50,7 +51,8 @@
 		F10000000000000000000012 /* BlinkDetectionTuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkDetectionTuning.swift; sourceTree = "<group>"; };
 		F10000000000000000000013 /* FlappyHorseTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyHorseTheme.swift; sourceTree = "<group>"; };
 		F10000000000000000000014 /* DifficultyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyConfig.swift; sourceTree = "<group>"; };
-		P10000000000000000000001 /* FaceFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10000000000000000000015 /* CameraGameHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGameHubView.swift; sourceTree = "<group>"; };
+		P10000000000000000000001 /* CameraGameHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraGameHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,16 +78,16 @@
 		G10000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
-				G10000000000000000000002 /* FaceFly */,
+				G10000000000000000000002 /* CameraGameHub */,
 				G10000000000000000000003 /* Products */,
 				C1285EDD2F84D9330049AB76 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
-		G10000000000000000000002 /* FaceFly */ = {
+		G10000000000000000000002 /* CameraGameHub */ = {
 			isa = PBXGroup;
 			children = (
-				F10000000000000000000001 /* FaceFlyApp.swift */,
+				F10000000000000000000001 /* CameraGameHubApp.swift */,
 				G10000000000000000000004 /* App */,
 				G10000000000000000000008 /* Game */,
 				G10000000000000000000009 /* Views */,
@@ -94,13 +96,13 @@
 				G10000000000000000000007 /* Tracking */,
 				F1000000000000000000000A /* Assets.xcassets */,
 			);
-			path = FaceFly;
+			path = CameraGameHub;
 			sourceTree = "<group>";
 		};
 		G10000000000000000000003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				P10000000000000000000001 /* FaceFly.app */,
+				P10000000000000000000001 /* CameraGameHub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				F10000000000000000000002 /* ContentView.swift */,
+				F10000000000000000000015 /* CameraGameHubView.swift */,
 				F10000000000000000000003 /* FaceTrackingSessionModel.swift */,
 				F1000000000000000000000F /* HomeView.swift */,
 				F10000000000000000000010 /* FaceSettingsView.swift */,
@@ -167,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		T10000000000000000000001 /* FaceFly */ = {
+		T10000000000000000000001 /* CameraGameHub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C10000000000000000000003 /* Build configuration list for PBXNativeTarget "FaceFly" */;
+			buildConfigurationList = C10000000000000000000003 /* Build configuration list for PBXNativeTarget "CameraGameHub" */;
 			buildPhases = (
 				S10000000000000000000001 /* Sources */,
 				FW10000000000000000000001 /* Frameworks */,
@@ -179,9 +182,9 @@
 			);
 			dependencies = (
 			);
-			name = FaceFly;
-			productName = FaceFly;
-			productReference = P10000000000000000000001 /* FaceFly.app */;
+			name = CameraGameHub;
+			productName = CameraGameHub;
+			productReference = P10000000000000000000001 /* CameraGameHub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +202,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C10000000000000000000001 /* Build configuration list for PBXProject "FaceFly" */;
+			buildConfigurationList = C10000000000000000000001 /* Build configuration list for PBXProject "CameraGameHub" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = ko;
 			hasScannedForEncodings = 0;
@@ -213,7 +216,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				T10000000000000000000001 /* FaceFly */,
+				T10000000000000000000001 /* CameraGameHub */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B10000000000000000000001 /* FaceFlyApp.swift in Sources */,
+				B10000000000000000000001 /* CameraGameHubApp.swift in Sources */,
 				B10000000000000000000002 /* ContentView.swift in Sources */,
 				B10000000000000000000003 /* FaceTrackingSessionModel.swift in Sources */,
 				B10000000000000000000004 /* FaceInputSnapshot.swift in Sources */,
@@ -252,6 +255,7 @@
 				B10000000000000000000012 /* BlinkDetectionTuning.swift in Sources */,
 				B10000000000000000000013 /* FlappyHorseTheme.swift in Sources */,
 				B10000000000000000000014 /* DifficultyConfig.swift in Sources */,
+				B10000000000000000000015 /* CameraGameHubView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +319,7 @@
 				DEVELOPMENT_TEAM = 2ZM4623N9G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "카메라 게임 허브";
 				INFOPLIST_KEY_NSCameraUsageDescription = "얼굴 움직임으로 게임을 조작하기 위해 전면 카메라와 얼굴 추적이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -325,7 +330,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.facefly.FaceFly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cameragamehub.CameraGameHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -348,6 +353,7 @@
 				DEVELOPMENT_TEAM = 2ZM4623N9G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "카메라 게임 허브";
 				INFOPLIST_KEY_NSCameraUsageDescription = "얼굴 움직임으로 게임을 조작하기 위해 전면 카메라와 얼굴 추적이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -358,7 +364,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.facefly.FaceFly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cameragamehub.CameraGameHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -371,7 +377,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C10000000000000000000001 /* Build configuration list for PBXProject "FaceFly" */ = {
+		C10000000000000000000001 /* Build configuration list for PBXProject "CameraGameHub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				X10000000000000000000001 /* Debug */,
@@ -380,7 +386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C10000000000000000000003 /* Build configuration list for PBXNativeTarget "FaceFly" */ = {
+		C10000000000000000000003 /* Build configuration list for PBXNativeTarget "CameraGameHub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				X10000000000000000000003 /* Debug */,

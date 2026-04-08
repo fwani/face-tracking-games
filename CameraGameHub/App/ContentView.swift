@@ -7,11 +7,17 @@ private enum AppRoute {
     case playing
 }
 
+private enum AppRoot {
+    case hub
+    case faceFly
+}
+
 struct ContentView: View {
     @StateObject private var tracking = FaceTrackingSessionModel()
     @StateObject private var game = FlappyGameModel()
 
     @AppStorage(GameParameters.tutorialDefaultsKey) private var tutorialDone = false
+    @State private var appRoot: AppRoot = .hub
     @State private var route: AppRoute = .home
     @State private var showTutorial = false
     @State private var showDebug = false
@@ -37,6 +43,20 @@ struct ContentView: View {
     private let timer = Timer.publish(every: 1 / 60, on: .main, in: .common).autoconnect()
 
     var body: some View {
+        Group {
+            switch appRoot {
+            case .hub:
+                CameraGameHubView {
+                    appRoot = .faceFly
+                    route = .home
+                }
+            case .faceFly:
+                faceFlyContent
+            }
+        }
+    }
+
+    private var faceFlyContent: some View {
         ZStack {
             FaceTrackingARView(
                 onSnapshot: { snap in
@@ -121,7 +141,14 @@ struct ContentView: View {
                     startPlayFromHome()
                 }
             },
-            onSettings: { route = .settings }
+            onSettings: { route = .settings },
+            onBackToHub: {
+                appRoot = .hub
+                route = .home
+                showTutorial = false
+                showDebug = false
+                game.restart()
+            }
         )
         .confirmationDialog(
             "저장된 눈 뜸 기준이 없습니다. 설정에서 측정할까요?",

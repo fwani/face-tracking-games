@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct FaceFlyApp: App {
+struct CameraGameHubApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

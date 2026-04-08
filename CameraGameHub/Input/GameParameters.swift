@@ -49,15 +49,15 @@ enum GameParameters {
     /// 화면 가장자리(0/1 정규 좌표) 판정 시 부동소수 여유.
     static let screenEdgeEpsilonNorm: Float = 0.002
 
-    static let tutorialDefaultsKey = "facefly.tutorial.v1.done"
+    static let tutorialDefaultsKey = "cameragamehub.tutorial.v1.done"
 
     /// UserDefaults: 저장된 눈 뜸 baseline(양쪽 평균, 0…1 스케일).
-    static let blinkBaselineStoredKey = "facefly.blinkBaseline.value"
-    static let blinkBaselineCalibratedKey = "facefly.blinkBaseline.calibrated"
+    static let blinkBaselineStoredKey = "cameragamehub.blinkBaseline.value"
+    static let blinkBaselineCalibratedKey = "cameragamehub.blinkBaseline.calibrated"
 
     /// UserDefaults: 점프 블링크 감도 0…1 (0 민감, 1 타이트). 미저장 시 `BlinkDetectionTuning.defaultStrictness`.
-    static let blinkSensitivityStrictnessKey = "facefly.blinkSensitivity.strictness"
+    static let blinkSensitivityStrictnessKey = "cameragamehub.blinkSensitivity.strictness"
     /// 구버전(정규화·델타 별도 저장) — 최초 로드 시 strictness로 이전 후 제거.
-    static let blinkSensitivityNormalizedKey = "facefly.blinkSensitivity.normalized"
-    static let blinkSensitivityDeltaKey = "facefly.blinkSensitivity.delta"
+    static let blinkSensitivityNormalizedKey = "cameragamehub.blinkSensitivity.normalized"
+    static let blinkSensitivityDeltaKey = "cameragamehub.blinkSensitivity.delta"
 }

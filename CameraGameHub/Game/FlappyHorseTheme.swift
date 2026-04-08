@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// [docs/flappy-horse-design-guide.md] §2·§6·§8 — 뷰/코드 레이어용 색상·레이아웃 (SVG 내부 색은 에셋에 유지).
+/// [docs/facefly/flappy-horse-design-guide.md] §2·§6·§8 — 뷰/코드 레이어용 색상·레이아웃 (SVG 내부 색은 에셋에 유지).
 enum FlappyHorseTheme {
     static let skyTop = Color(red: 0.788, green: 0.875, blue: 0.949) // #C9DFF2
     static let skyBottom = Color(red: 0.961, green: 0.851, blue: 0.722) // #F5D9B8
