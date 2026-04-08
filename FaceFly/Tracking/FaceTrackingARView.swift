@@ -1,4 +1,4 @@
-import ARKit
+@preconcurrency import ARKit
 import SwiftUI
 
 /// Runs `ARFaceTrackingConfiguration` and forwards blend shapes + yaw (PRD §5.1–5.2).
@@ -6,6 +6,8 @@ struct FaceTrackingARView: UIViewRepresentable {
     var onSnapshot: @MainActor (FaceInputSnapshot) -> Void
     /// 값이 바뀔 때마다 추적을 초기화해 얼굴 앵커를 다시 잡습니다.
     var arSessionResetNonce: Int = 0
+    /// `false`이면 세션을 `pause()`해 홈 등에서 카메라·추적 부하를 줄입니다(설정/플레이에서만 동작).
+    var isTrackingActive: Bool = true
 
     func makeCoordinator() -> Coordinator {
         Coordinator(onSnapshot: onSnapshot)
@@ -14,36 +16,69 @@ struct FaceTrackingARView: UIViewRepresentable {
     func makeUIView(context: Context) -> ARSCNView {
         let view = ARSCNView(frame: .zero)
         view.session.delegate = context.coordinator
-        view.automaticallyUpdatesLighting = true
+        view.automaticallyUpdatesLighting = false
         view.isUserInteractionEnabled = false
-        context.coordinator.attach(session: view.session)
+        context.coordinator.lastAppliedResetNonce = arSessionResetNonce
+        context.coordinator.shouldRunSession = isTrackingActive
+        if isTrackingActive {
+            context.coordinator.attach(session: view.session, resetTracking: true)
+        }
         return view
     }
 
     func updateUIView(_ uiView: ARSCNView, context: Context) {
         context.coordinator.onSnapshot = onSnapshot
+        context.coordinator.shouldRunSession = isTrackingActive
+
         if context.coordinator.lastAppliedResetNonce != arSessionResetNonce {
             context.coordinator.lastAppliedResetNonce = arSessionResetNonce
-            context.coordinator.attach(session: uiView.session)
+            if isTrackingActive {
+                context.coordinator.attach(session: uiView.session, resetTracking: true)
+            }
+        } else if context.coordinator.lastIsTrackingActive != isTrackingActive {
+            if isTrackingActive {
+                context.coordinator.resumeSession(uiView.session)
+            } else {
+                uiView.session.pause()
+            }
         }
+        context.coordinator.lastIsTrackingActive = isTrackingActive
     }
 
     static func dismantleUIView(_ uiView: ARSCNView, coordinator: Coordinator) {
         uiView.session.pause()
     }
 
-    final class Coordinator: NSObject, ARSessionDelegate {
+    final class Coordinator: NSObject, ARSessionDelegate, @unchecked Sendable {
         var onSnapshot: @MainActor (FaceInputSnapshot) -> Void
         var lastAppliedResetNonce: Int = 0
+        /// `updateUIView`에서 갱신 — 인터럽트 복구 시 불필요한 `run` 방지.
+        var shouldRunSession: Bool = true
+        var lastIsTrackingActive: Bool?
 
         init(onSnapshot: @escaping @MainActor (FaceInputSnapshot) -> Void) {
             self.onSnapshot = onSnapshot
         }
 
-        func attach(session: ARSession) {
-            guard ARFaceTrackingConfiguration.isSupported else { return }
+        private func makeFaceTrackingConfiguration() -> ARFaceTrackingConfiguration {
             let config = ARFaceTrackingConfiguration()
-            session.run(config, options: [.resetTracking, .removeExistingAnchors])
+            config.isLightEstimationEnabled = false
+            config.maximumNumberOfTrackedFaces = 1
+            return config
+        }
+
+        func attach(session: ARSession, resetTracking: Bool) {
+            guard ARFaceTrackingConfiguration.isSupported else { return }
+            let config = makeFaceTrackingConfiguration()
+            let options: ARSession.RunOptions = resetTracking ? [.resetTracking, .removeExistingAnchors] : []
+            session.run(config, options: options)
+        }
+
+        /// `pause()` 이후 재개 — 트래킹 리셋 없이 세션만 이어갑니다.
+        func resumeSession(_ session: ARSession) {
+            guard ARFaceTrackingConfiguration.isSupported else { return }
+            let config = makeFaceTrackingConfiguration()
+            session.run(config, options: [])
         }
 
         nonisolated func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
@@ -101,7 +136,8 @@ struct FaceTrackingARView: UIViewRepresentable {
 
         nonisolated func sessionInterruptionEnded(_ session: ARSession) {
             DispatchQueue.main.async { [weak self] in
-                self?.attach(session: session)
+                guard let self, self.shouldRunSession else { return }
+                self.attach(session: session, resetTracking: true)
             }
         }
 

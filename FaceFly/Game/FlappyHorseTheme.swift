@@ -14,10 +14,6 @@ enum FlappyHorseTheme {
     static let goldenButtonPressed = Color(red: 0.753, green: 0.439, blue: 0.063) // #C07010
     static let boostFlame = Color(red: 0.753, green: 0.439, blue: 0.063)
 
-    /// 지면 밴드 높이 (화면 비율). 가이드 15~20% 중앙값.
-    static let groundBandHeightNorm: CGFloat = 0.175
-    static let groundCollisionEpsilon: CGFloat = 0.012
-
     static let scoreFontSize: CGFloat = 36
     static let levelFontSize: CGFloat = 18
 }

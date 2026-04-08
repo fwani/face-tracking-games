@@ -22,8 +22,14 @@ struct ContentView: View {
     @State private var settingsBlinkJumpTestActive = false
     @State private var arSessionResetNonce = 0
     @State private var showPlayWithoutBaselineConfirm = false
+    @State private var selectedDifficulty: Difficulty = .normal
 
     private let arSupported = ARFaceTrackingConfiguration.isSupported
+
+    /// 홈에서는 AR 세션을 멈춰 카메라·추적 부하를 줄임(설정/플레이에서만 실행).
+    private var arFaceTrackingSessionActive: Bool {
+        arSupported && (route == .settings || route == .playing)
+    }
 
     private var needsBlinkBaselineSetup: Bool {
         arSupported && !BlinkBaselineStorage.hasStoredCalibration
@@ -47,7 +53,8 @@ struct ContentView: View {
                     settingsBlinkJumpTestActive: jumpTest
                 )
                 },
-                arSessionResetNonce: arSessionResetNonce
+                arSessionResetNonce: arSessionResetNonce,
+                isTrackingActive: arFaceTrackingSessionActive
             )
             .frame(width: 1, height: 1)
             .opacity(0.01)
@@ -106,6 +113,7 @@ struct ContentView: View {
     private var homeLayer: some View {
         HomeView(
             needsBlinkBaselineSetup: needsBlinkBaselineSetup,
+            selectedDifficulty: $selectedDifficulty,
             onPlay: {
                 if needsBlinkBaselineSetup {
                     showPlayWithoutBaselineConfirm = true
@@ -133,7 +141,7 @@ struct ContentView: View {
     }
 
     private func startPlayFromHome() {
-        game.restart()
+        game.configure(difficulty: selectedDifficulty)
         route = .playing
         if !tutorialDone {
             showTutorial = true

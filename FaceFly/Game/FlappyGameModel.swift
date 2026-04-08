@@ -23,11 +23,19 @@ final class FlappyGameModel: ObservableObject {
     @Published var showBoostFX: Bool = false
     @Published var runAnimationPhase: Bool = false
     @Published var hitFlashActive: Bool = false
+    @Published private(set) var difficulty: Difficulty = .normal
 
-    private let gravity = CGFloat(GameParameters.gravity) * CGFloat(GameParameters.physicsWorldScale)
-    private let jumpImpulse = CGFloat(GameParameters.jumpForce) * CGFloat(GameParameters.physicsWorldScale)
-    private let boostPerSec = CGFloat(GameParameters.boostForce) * CGFloat(GameParameters.physicsWorldScale)
-    private let scroll = CGFloat(GameParameters.worldScrollPerSec)
+    private var config: DifficultyConfig
+
+    private var gravity: CGFloat { CGFloat(config.gravity) * CGFloat(GameParameters.physicsWorldScale) }
+    private var jumpImpulse: CGFloat { CGFloat(config.jumpForce) * CGFloat(GameParameters.physicsWorldScale) }
+    private var boostPerSec: CGFloat { CGFloat(config.boostPower) * CGFloat(GameParameters.physicsWorldScale) }
+    private var scroll: CGFloat { CGFloat(config.scrollSpeed) }
+    private var gh: CGFloat { CGFloat(config.pipeGapHalfHeightNorm) }
+    private var span: CGFloat { CGFloat(config.birdHorizontalSpanNorm) }
+    private var follow: CGFloat { CGFloat(config.horizontalSensitivity) }
+    private var spawnGap: CGFloat { CGFloat(config.spawnInterval) }
+
     private let pw = CGFloat(GameParameters.pipeHalfWidthNorm)
     private let pipeHitHalfW = CGFloat(GameParameters.pipeCollisionHalfWidthNorm)
     /// 화면 가로/세로 — `GamePlayfieldView`에서 갱신. 말 충돌 세로는 이 비율로 계산.
@@ -43,16 +51,24 @@ final class FlappyGameModel: ObservableObject {
         guard width > 0, height > 0 else { return }
         playfieldWidthOverHeight = width / height
     }
-    private let gh = CGFloat(GameParameters.pipeGapHalfHeightNorm)
-    private let span = CGFloat(GameParameters.birdHorizontalSpanNorm)
-    private let follow = CGFloat(GameParameters.horizontalFollowRate)
-    private let spawnGap = CGFloat(GameParameters.pipeSpawnMinDistanceNorm)
-    private let groundH = CGFloat(GameParameters.groundBandHeightNorm)
-    private let groundEps = CGFloat(GameParameters.groundCollisionEpsilonNorm)
+
+    private let edgeEps = CGFloat(GameParameters.screenEdgeEpsilonNorm)
     private var runAnimAccum: CGFloat = 0
     private var hitFlashUntil: TimeInterval = 0
 
-    init() {
+    /// 렌더링과 동일한 기둥 간격(정규화, 반높이).
+    var pipeGapHalfHeightNorm: CGFloat { CGFloat(config.pipeGapHalfHeightNorm) }
+
+    init(difficulty: Difficulty = .normal) {
+        config = difficulty.config
+        self.difficulty = difficulty
+        restart()
+    }
+
+    /// 세션 시작 시 또는 홈에서 플레이 직전에 호출. 난이도는 게임 중 변경하지 않는다.
+    func configure(difficulty: Difficulty) {
+        self.difficulty = difficulty
+        config = difficulty.config
         restart()
     }
 
@@ -141,7 +157,13 @@ final class FlappyGameModel: ObservableObject {
         let rightmost = pipes.map(\.x).max() ?? 0
         if rightmost < 1.0 - spawnGap * 0.35 {
             let nx = rightmost + spawnGap
-            let mid = CGFloat.random(in: 0.34 ... 0.66)
+            let refMid = pipes.max(by: { $0.x < $1.x })?.gapMidY ?? 0.5
+            let d = CGFloat(config.gapMidYMaxDelta)
+            let globalLo: CGFloat = 0.34
+            let globalHi: CGFloat = 0.66
+            let lo = max(globalLo, refMid - d)
+            let hi = min(globalHi, refMid + d)
+            let mid = lo < hi ? CGFloat.random(in: lo ... hi) : refMid
             pipes.append(Pipe(id: UUID(), x: nx, gapMidY: mid, scored: false))
         }
 
@@ -157,7 +179,15 @@ final class FlappyGameModel: ObservableObject {
     }
 
     private func checkBounds() {
-        if birdY - bh <= groundH + groundEps || birdY + bh >= 0.98 {
+        let birdL = birdX - bw
+        let birdR = birdX + bw
+        let birdBot = birdY - bh
+        let birdTop = birdY + bh
+        if birdBot <= edgeEps
+            || birdTop >= 1 - edgeEps
+            || birdL <= edgeEps
+            || birdR >= 1 - edgeEps
+        {
             triggerGameOverFlash()
             isGameOver = true
         }

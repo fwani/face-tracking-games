@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     var needsBlinkBaselineSetup: Bool = false
+    @Binding var selectedDifficulty: Difficulty
     let onPlay: () -> Void
     let onSettings: () -> Void
 
@@ -20,6 +21,25 @@ struct HomeView: View {
                     .monospaced()
                     .foregroundStyle(FlappyHorseTheme.hudCream)
                     .shadow(color: FlappyHorseTheme.hudShadow.opacity(0.6), radius: 0, x: 2, y: 2)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("난이도")
+                        .font(.subheadline.weight(.bold))
+                        .foregroundStyle(FlappyHorseTheme.hudCream.opacity(0.9))
+                    Picker("난이도", selection: $selectedDifficulty) {
+                        ForEach(Difficulty.allCases) { d in
+                            Text(d.displayName).tag(d)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(maxWidth: 320)
+                    if selectedDifficulty.config.boostRequired {
+                        Text("부스터 활용이 유리합니다")
+                            .font(.caption2.weight(.medium))
+                            .foregroundStyle(FlappyHorseTheme.hudCream.opacity(0.75))
+                    }
+                }
+                .frame(maxWidth: 340)
 
                 Button(action: onPlay) {
                     Text("플레이")
@@ -93,5 +113,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(needsBlinkBaselineSetup: true, onPlay: {}, onSettings: {})
+    HomeView(needsBlinkBaselineSetup: true, selectedDifficulty: .constant(.normal), onPlay: {}, onSettings: {})
 }

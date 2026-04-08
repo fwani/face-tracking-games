@@ -7,7 +7,7 @@ enum GameParameters {
     /// 초기 눈 뜸 구간에서 baseline을 잡는 시간(초).
     static let blinkBaselineWindowSeconds: TimeInterval = 1.5
     /// `normalizedBlink = rawAvg - baseline` 이 이 값을 넘을 때만 후보.
-    static let blinkNormalizedThreshold: Float = 0.35
+    static let blinkNormalizedThreshold: Float = 0.45
     /// 프레임당 `rawAvg - prevRawAvg` 최소 증가량 (급격한 상승).
     static let blinkDeltaThreshold: Float = 0.22
     /// 이벤트 간 최소 간격(초). 연속 중복 방지·짧은 flap 허용 균형.
@@ -29,33 +29,25 @@ enum GameParameters {
     /// 설정 화면 좌우(요) 회전 게이지 정규화용 ±범위(라디안).
     static let settingsYawGaugeMaxRadians: Float = 0.55
 
-    /// PRD §9 — 점프 impulse (고정; blink 강도와 무관).
-    static let jumpForce: Float = 8.0
     /// `birdVy > 0`(상승 중)일 때 점프에 곱함. 1이면 동일, 낮출수록 연타 시 급상승 완화.
-    static let jumpImpulseWhileRisingMultiplier: Float = 0.42
-    static let boostForce: Float = 3.0
-    static let gravity: Float = -9.8
+    static let jumpImpulseWhileRisingMultiplier: Float = 0.22
 
     /// Maps PRD-style values into normalized playfield units per second².
     static let physicsWorldScale: Float = 0.055
-    static let worldScrollPerSec: Float = 0.32
     /// 말 스프라이트·충돌 가로 (정규화). `horseAssetView*`와 `GamePlayfieldView`와 동일해야 함.
-    static let birdVisualWidthNorm: Float = 0.09
+    static let birdVisualWidthNorm: Float = 0.18
     /// 말 SVG 공통 viewBox (양 에셋 동일). 세로 충돌은 화면 `width/height`로 스케일.
     static let horseAssetViewWidth: Float = 80
     static let horseAssetViewHeight: Float = 60
     /// 기둥 이미지 가로 반폭(정규화). `GamePlayfieldView` 배치·통과 점수에 사용.
-    static let pipeHalfWidthNorm: Float = 0.055
+    static let pipeHalfWidthNorm: Float = 0.11
     /// 기둥 좌우 충돌만 — 시각보다 좁게(몸통에 가깝게). SVG와 무관하게 튜닝.
-    static let pipeCollisionHalfWidthNorm: Float = 0.036
-    static let pipeGapHalfHeightNorm: Float = 0.22
-    static let birdHorizontalSpanNorm: Float = 0.32
-    static let horizontalFollowRate: Float = 5.5
-    static let pipeSpawnMinDistanceNorm: Float = 0.42
+    static let pipeCollisionHalfWidthNorm: Float = 0.072
 
     /// 화면 하단 지면 밴드 높이(정규화). [flappy-horse-design-guide]와 `FlappyHorseTheme`·충돌 판정과 일치.
     static let groundBandHeightNorm: Float = 0.175
-    static let groundCollisionEpsilonNorm: Float = 0.012
+    /// 화면 가장자리(0/1 정규 좌표) 판정 시 부동소수 여유.
+    static let screenEdgeEpsilonNorm: Float = 0.002
 
     static let tutorialDefaultsKey = "facefly.tutorial.v1.done"
 

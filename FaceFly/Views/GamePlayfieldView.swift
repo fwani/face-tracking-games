@@ -16,7 +16,7 @@ struct GamePlayfieldView: View {
             let w = geo.size.width
             let h = geo.size.height
             let pw = CGFloat(GameParameters.pipeHalfWidthNorm) * w
-            let groundH = h * FlappyHorseTheme.groundBandHeightNorm
+            let groundH = h * CGFloat(GameParameters.groundBandHeightNorm)
             let horseW = w * CGFloat(GameParameters.birdVisualWidthNorm)
             let horseH = horseW * CGFloat(GameParameters.horseAssetViewHeight) / CGFloat(GameParameters.horseAssetViewWidth)
 
@@ -28,7 +28,7 @@ struct GamePlayfieldView: View {
                 )
                 .ignoresSafeArea()
 
-                mountainLayer(width: w, height: h)
+                mountainLayer(width: w, height: h, groundH: groundH)
                     .allowsHitTesting(false)
 
                 cloudLayer(width: w, height: h)
@@ -40,12 +40,13 @@ struct GamePlayfieldView: View {
                 leafLayer(width: w, height: h, groundH: groundH)
                     .allowsHitTesting(false)
 
-                ForEach(game.pipes) { pipe in
-                    pillarPair(pipe: pipe, w: w, h: h, pw: pw, groundH: groundH)
-                }
-
+                // 지면을 먼저 그려야 아래 기둥이 화면 맨 아래까지 보인다(기둥이 위 레이어).
                 groundScrollLayer(width: w, groundH: groundH, totalHeight: h)
                     .allowsHitTesting(false)
+
+                ForEach(game.pipes) { pipe in
+                    pillarPair(pipe: pipe, w: w, h: h, pw: pw)
+                }
 
                 horseStack(
                     centerX: game.birdX * w,
@@ -68,13 +69,13 @@ struct GamePlayfieldView: View {
         }
     }
 
-    private func mountainLayer(width w: CGFloat, height h: CGFloat) -> some View {
+    private func mountainLayer(width w: CGFloat, height h: CGFloat, groundH: CGFloat) -> some View {
         let period = w
         let shift = game.worldScrollPhase * w * 0.2
         let ox = shift.truncatingRemainder(dividingBy: period)
         return ZStack(alignment: .topLeading) {
             ForEach(0 ..< 4, id: \.self) { i in
-                mountainSilhouette(width: w, height: h)
+                mountainSilhouette(width: w, height: h, groundH: groundH)
                     .offset(x: CGFloat(i) * period - ox)
             }
         }
@@ -82,8 +83,10 @@ struct GamePlayfieldView: View {
         .clipped()
     }
 
-    private func mountainSilhouette(width w: CGFloat, height h: CGFloat) -> some View {
-        Path { path in
+    /// 산 하단을 지면 타일 상단(`h - groundH`)에 맞춰 스크롤 지면과 이어지게 함.
+    private func mountainSilhouette(width w: CGFloat, height h: CGFloat, groundH: CGFloat) -> some View {
+        let yBase = h - groundH
+        return Path { path in
             path.move(to: CGPoint(x: 0, y: h * 0.5))
             path.addQuadCurve(
                 to: CGPoint(x: w * 0.22, y: h * 0.44),
@@ -101,8 +104,8 @@ struct GamePlayfieldView: View {
                 to: CGPoint(x: w, y: h * 0.52),
                 control: CGPoint(x: w * 0.86, y: h * 0.42)
             )
-            path.addLine(to: CGPoint(x: w, y: h * 0.62))
-            path.addLine(to: CGPoint(x: 0, y: h * 0.62))
+            path.addLine(to: CGPoint(x: w, y: yBase))
+            path.addLine(to: CGPoint(x: 0, y: yBase))
             path.closeSubpath()
         }
         .fill(FlappyHorseTheme.mountain.opacity(0.55))
@@ -148,15 +151,15 @@ struct GamePlayfieldView: View {
         .position(x: w / 2, y: h - groundH - bandH / 2)
     }
 
-    private func pillarPair(pipe: FlappyGameModel.Pipe, w: CGFloat, h: CGFloat, pw: CGFloat, groundH: CGFloat) -> some View {
-        let gapTop = pipe.gapMidY + CGFloat(GameParameters.pipeGapHalfHeightNorm)
-        let gapBot = pipe.gapMidY - CGFloat(GameParameters.pipeGapHalfHeightNorm)
+    /// 아래 기둥은 화면 **맨 아래**(판정 하단)에서 이어지도록 높이 `gapBot * h` 전체를 사용.
+    private func pillarPair(pipe: FlappyGameModel.Pipe, w: CGFloat, h: CGFloat, pw: CGFloat) -> some View {
+        let gapTop = pipe.gapMidY + game.pipeGapHalfHeightNorm
+        let gapBot = pipe.gapMidY - game.pipeGapHalfHeightNorm
         let topPipeH = max(2, (1 - gapTop) * h)
         let rawBotScreenH = gapBot * h
-        let botPipeH = max(2, rawBotScreenH - groundH)
+        let botPipeH = max(2, rawBotScreenH)
         let cx = pipe.x * w
-        let topOfBottomPillar = h - rawBotScreenH
-        let bottomPillarCenterY = topOfBottomPillar + botPipeH / 2
+        let bottomPillarCenterY = h - rawBotScreenH / 2
 
         return ZStack(alignment: .topLeading) {
             Image("pillar_top")
