@@ -2,6 +2,7 @@ build/
 DerivedData/
 .derivedDataCameraGameHub/
 .derivedDataFaceFly/
+.derivedDataBuild/
 *.xcuserstate
 xcuserdata/
 .DS_Store

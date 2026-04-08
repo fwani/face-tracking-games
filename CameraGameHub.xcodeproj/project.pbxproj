@@ -17,6 +17,7 @@
 		B10000000000000000000008 /* FaceTrackingARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000008 /* FaceTrackingARView.swift */; };
 		B10000000000000000000009 /* HeadPose+Yaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000009 /* HeadPose+Yaw.swift */; };
 		B1000000000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000A /* Assets.xcassets */; };
+		B10000000000000000000018 /* FaceFlyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000018 /* FaceFlyAssets.xcassets */; };
 		B1000000000000000000000B /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000B /* ARKit.framework */; };
 		B1000000000000000000000C /* FlappyGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000C /* FlappyGameModel.swift */; };
 		B1000000000000000000000D /* GamePlayfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000D /* GamePlayfieldView.swift */; };
@@ -28,6 +29,18 @@
 		B10000000000000000000013 /* FlappyHorseTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000013 /* FlappyHorseTheme.swift */; };
 		B10000000000000000000014 /* DifficultyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000014 /* DifficultyConfig.swift */; };
 		B10000000000000000000015 /* CameraGameHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000015 /* CameraGameHubView.swift */; };
+		B10000000000000000000016 /* HubGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000016 /* HubGame.swift */; };
+		B10000000000000000000017 /* FaceFlyRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000017 /* FaceFlyRootView.swift */; };
+		B10000000000000000000019 /* ObstacleDodgeFaceSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000019 /* ObstacleDodgeFaceSnapshot.swift */; };
+		B1000000000000000000001A /* ObstacleDodgeObstacleVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001A /* ObstacleDodgeObstacleVisual.swift */; };
+		B1000000000000000000001C /* ObstacleDodgeInputThresholds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001C /* ObstacleDodgeInputThresholds.swift */; };
+		B10000000000000000000025 /* ObstacleDodgeAnalogMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000025 /* ObstacleDodgeAnalogMapper.swift */; };
+		B1000000000000000000001E /* ObstacleDodgeHeadPose.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001E /* ObstacleDodgeHeadPose.swift */; };
+		B1000000000000000000001F /* ObstacleDodgeARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001F /* ObstacleDodgeARView.swift */; };
+		B10000000000000000000021 /* ObstacleDodgeDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000021 /* ObstacleDodgeDifficulty.swift */; };
+		B10000000000000000000022 /* ObstacleDodgeGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000022 /* ObstacleDodgeGameModel.swift */; };
+		B10000000000000000000023 /* ObstacleDodgePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000023 /* ObstacleDodgePlayView.swift */; };
+		B10000000000000000000024 /* ObstacleDodgeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000024 /* ObstacleDodgeRootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +54,7 @@
 		F10000000000000000000008 /* FaceTrackingARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackingARView.swift; sourceTree = "<group>"; };
 		F10000000000000000000009 /* HeadPose+Yaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeadPose+Yaw.swift"; sourceTree = "<group>"; };
 		F1000000000000000000000A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F10000000000000000000018 /* FaceFlyAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1000000000000000000000B /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		F1000000000000000000000C /* FlappyGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyGameModel.swift; sourceTree = "<group>"; };
 		F1000000000000000000000D /* GamePlayfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayfieldView.swift; sourceTree = "<group>"; };
@@ -52,6 +66,18 @@
 		F10000000000000000000013 /* FlappyHorseTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyHorseTheme.swift; sourceTree = "<group>"; };
 		F10000000000000000000014 /* DifficultyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyConfig.swift; sourceTree = "<group>"; };
 		F10000000000000000000015 /* CameraGameHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGameHubView.swift; sourceTree = "<group>"; };
+		F10000000000000000000016 /* HubGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubGame.swift; sourceTree = "<group>"; };
+		F10000000000000000000017 /* FaceFlyRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceFlyRootView.swift; sourceTree = "<group>"; };
+		F10000000000000000000019 /* ObstacleDodgeFaceSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeFaceSnapshot.swift; sourceTree = "<group>"; };
+		F1000000000000000000001A /* ObstacleDodgeObstacleVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeObstacleVisual.swift; sourceTree = "<group>"; };
+		F1000000000000000000001C /* ObstacleDodgeInputThresholds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeInputThresholds.swift; sourceTree = "<group>"; };
+		F10000000000000000000025 /* ObstacleDodgeAnalogMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeAnalogMapper.swift; sourceTree = "<group>"; };
+		F1000000000000000000001E /* ObstacleDodgeHeadPose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeHeadPose.swift; sourceTree = "<group>"; };
+		F1000000000000000000001F /* ObstacleDodgeARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeARView.swift; sourceTree = "<group>"; };
+		F10000000000000000000021 /* ObstacleDodgeDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeDifficulty.swift; sourceTree = "<group>"; };
+		F10000000000000000000022 /* ObstacleDodgeGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeGameModel.swift; sourceTree = "<group>"; };
+		F10000000000000000000023 /* ObstacleDodgePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgePlayView.swift; sourceTree = "<group>"; };
+		F10000000000000000000024 /* ObstacleDodgeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDodgeRootView.swift; sourceTree = "<group>"; };
 		P10000000000000000000001 /* CameraGameHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraGameHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,11 +115,7 @@
 			children = (
 				F10000000000000000000001 /* CameraGameHubApp.swift */,
 				G10000000000000000000004 /* App */,
-				G10000000000000000000008 /* Game */,
-				G10000000000000000000009 /* Views */,
-				G10000000000000000000005 /* Models */,
-				G10000000000000000000006 /* Input */,
-				G10000000000000000000007 /* Tracking */,
+				G10000000000000000000020 /* Games */,
 				F1000000000000000000000A /* Assets.xcassets */,
 			);
 			path = CameraGameHub;
@@ -112,9 +134,98 @@
 			children = (
 				F10000000000000000000002 /* ContentView.swift */,
 				F10000000000000000000015 /* CameraGameHubView.swift */,
-				F10000000000000000000003 /* FaceTrackingSessionModel.swift */,
+				F10000000000000000000016 /* HubGame.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000020 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				G10000000000000000000021 /* FaceFly */,
+				G10000000000000000000030 /* ObstacleDodge */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000030 /* ObstacleDodge */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000024 /* ObstacleDodgeRootView.swift */,
+				G10000000000000000000031 /* Models */,
+				G10000000000000000000032 /* Input */,
+				G10000000000000000000033 /* Tracking */,
+				G10000000000000000000034 /* Game */,
+				G10000000000000000000035 /* Views */,
+			);
+			path = ObstacleDodge;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000031 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000019 /* ObstacleDodgeFaceSnapshot.swift */,
+				F1000000000000000000001A /* ObstacleDodgeObstacleVisual.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000032 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000001C /* ObstacleDodgeInputThresholds.swift */,
+				F10000000000000000000025 /* ObstacleDodgeAnalogMapper.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000033 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000001E /* ObstacleDodgeHeadPose.swift */,
+				F1000000000000000000001F /* ObstacleDodgeARView.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000034 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000021 /* ObstacleDodgeDifficulty.swift */,
+				F10000000000000000000022 /* ObstacleDodgeGameModel.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000035 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000023 /* ObstacleDodgePlayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000021 /* FaceFly */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000017 /* FaceFlyRootView.swift */,
+				F10000000000000000000018 /* FaceFlyAssets.xcassets */,
+				G10000000000000000000022 /* App */,
+				G10000000000000000000005 /* Models */,
+				G10000000000000000000006 /* Input */,
+				G10000000000000000000007 /* Tracking */,
+				G10000000000000000000008 /* Game */,
+				G10000000000000000000009 /* Views */,
+			);
+			path = FaceFly;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000022 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				F1000000000000000000000F /* HomeView.swift */,
 				F10000000000000000000010 /* FaceSettingsView.swift */,
+				F10000000000000000000003 /* FaceTrackingSessionModel.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -227,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1000000000000000000000A /* Assets.xcassets in Resources */,
+				B10000000000000000000018 /* FaceFlyAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +351,8 @@
 			files = (
 				B10000000000000000000001 /* CameraGameHubApp.swift in Sources */,
 				B10000000000000000000002 /* ContentView.swift in Sources */,
+				B10000000000000000000016 /* HubGame.swift in Sources */,
+				B10000000000000000000017 /* FaceFlyRootView.swift in Sources */,
 				B10000000000000000000003 /* FaceTrackingSessionModel.swift in Sources */,
 				B10000000000000000000004 /* FaceInputSnapshot.swift in Sources */,
 				B10000000000000000000005 /* GameInput.swift in Sources */,
@@ -256,6 +370,16 @@
 				B10000000000000000000013 /* FlappyHorseTheme.swift in Sources */,
 				B10000000000000000000014 /* DifficultyConfig.swift in Sources */,
 				B10000000000000000000015 /* CameraGameHubView.swift in Sources */,
+				B10000000000000000000019 /* ObstacleDodgeFaceSnapshot.swift in Sources */,
+				B1000000000000000000001A /* ObstacleDodgeObstacleVisual.swift in Sources */,
+				B1000000000000000000001C /* ObstacleDodgeInputThresholds.swift in Sources */,
+				B10000000000000000000025 /* ObstacleDodgeAnalogMapper.swift in Sources */,
+				B1000000000000000000001E /* ObstacleDodgeHeadPose.swift in Sources */,
+				B1000000000000000000001F /* ObstacleDodgeARView.swift in Sources */,
+				B10000000000000000000021 /* ObstacleDodgeDifficulty.swift in Sources */,
+				B10000000000000000000022 /* ObstacleDodgeGameModel.swift in Sources */,
+				B10000000000000000000023 /* ObstacleDodgePlayView.swift in Sources */,
+				B10000000000000000000024 /* ObstacleDodgeRootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
